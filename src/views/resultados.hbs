@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Resultados</title>
+
+  <!--========== LIBRERIA PLOTLY ==========-->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!--========== CSS ==========-->
+  <link rel="stylesheet" type="text/css" href="./css/style2.css">
+</head>
+
+<body>
+  <form id="form-param">
+    <div class="container">
+      <div>
+        <input type="text" id="identificadorParametro" class="parametro" placeholder="parametro"><input type="number" id="identificadorValor" class="valor"
+          placeholder="valor" required>
+      </div>
+      <div>
+        <input type="text" id="identificadorParametro" class="parametro" placeholder="parametro"><input type="number" id="identificadorValor" class="valor"
+          placeholder="valor" required>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="button" class="addParam">Agregar Resultados</button>
+      <button type="button" class="showResults">Mostrar Resultados</button>
+      <button type="button" class="showResults" onclick="return datos();">Guardar Resultados</button>
+    </div>
+  </form>
+  <div id="grafico"></div>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

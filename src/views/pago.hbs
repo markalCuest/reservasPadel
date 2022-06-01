@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago pista</title>
+
+    <!-- JavaScript 
+    <script type="text/javascript" src="./js/script.js"></script>-->
+
+</head>
+
+<body>
+    <form action="/checkout" method="post" id="formPago" style="margin-top: 140px;">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_51KzcibEGBho8cDmviZ4W3cGkvf5LZRklqOVDdSQbHHz8jZbCol3xldgwJkDT99JBvXMzgnq8zfCXEEEGlVGfA2Fa00pSzyhgNO"
+            data-amount="2100"
+            data-name="Reserva tu pista"
+            data-description="Padel Indoor"
+            data-image="./img/logo.png"
+            data-locale="auto">
+        </script>
+        <script>
+            document.getElementsByClassName("stripe-button-el")[0].style.display = "none";
+        </script>
+        <button type="submit"
+            class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700">Pagar
+        </button>
+    </form>
+</body>
+
+</html>

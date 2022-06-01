@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script type="text/javascript" src="./js/prueba.js"></script>-->
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="./css/style2.css">
+</head>
+
+<body>
+
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+    </a>
+
+    <main class="l-main">
+
+        <!--========== SLIDER ==========-->
+        <section class="home" id="home">
+            <div class="home__container bd-container bd-grid">
+
+                <div class="sliderCabecera">
+                    <p
+                        style="position: absolute;z-index: 1;color: white;font-size: 26px;font-weight: 600;background: #0000008f;width: 40%;top: 313px;margin-left: 10px;">
+                        Espacio Deportivo para amantes del pádel. 6 pistas, parking, monitores de todos los
+                        niveles...
+                    </p>
+                    <div id="slider">
+                        <figure>
+                            <img src="./img/p1.jpg" alt="imagen1_slider">
+                            <img src="./img/p2.jpg" alt="imagen2_slider">
+                            <img src="./img/p3.jpg" alt="imagen3_slider">
+                            <img src="./img/p4.jpg" alt="imagen4_slider">
+                            <img src="./img/p5.jpg" alt="imagen5_slider">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--========== HOME ==========-->
+        <section class="home" id="home">
+            <div class="home__container bd-container bd-grid">
+                <div class="home__img">
+                    <img src="./img/p1.jpg" alt="sobre nosotros">
+                </div>
+
+                <div class="home__data">
+                    <h1 class="section-title-center">Sobre Nosotros</h1>
+                    <p class="home__description">
+                        Queremos ofrecer lo que como usuarios nos gusta recibir y sentir en un
+                        club VIP, lo ultimo en instalaciones, un trato familiar, personalización de campeonatos y
+                        torneos, un agradable postpartido, y que se respire ambiente pádel, ¡mucho pádel!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="share section bd-container" id="share">
+            <div class="share__container bd-grid">
+                <div class="share__data">
+                    <h1 class="section-title-center">Valores</h1>
+                    <p class="share__description">
+                        En Padel Indoor buscamos que el tiempo en nuestro club sea un momento agradable, “no se
+                        recuerdan
+                        los días, se recuerdan los momentos”; queremos que forjéis un buen puñado de recuerdos en
+                        nuestra compañía, la pasión que ponemos a la hora de disfrutar de este deporte la queremos
+                        trasladar a unas instalaciones que se sitúan al más alto nivel, con un servicio profesional y
+                        cercano a todos aquellos que quieran compartir con nosotros sus momentos de ocio, sus recuerdos…
+                    </p>
+                </div>
+
+                <div class="share__img">
+                    <img src="./img/p2.jpg" alt="valores">
+                </div>
+            </div>
+        </section>
+
+        <!--========== Reserva ==========-->
+        <section class="share section bd-container" id="reserva">
+
+            <h2 class="section-title-center">Reserva</h2>
+            <form action="" method="post" class="mt-4" id="form">
+                <input type="date" name="dia" placeholder="Date"
+                    class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white"
+                    required>
+                <input type="time" name="hora" placeholder="Time"
+                    class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white"
+                    required>
+                <select name="pista"
+                    class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white"
+                    required>
+                    <option value="1">Pista 1</option>
+                    <option value="2">Pista 2</option>
+                    <option value="3">Pista 3</option>
+                    <option value="4">Pista 4</option>
+                    <option value="5">Pista 5</option>
+                    <option value="6">Pista 6</option>
+                </select>
+
+                <button type="submit"
+                    class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700"
+                    onclick="validateForm()">Reserva</button>
+                <button type="reset"
+                    class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700">Limpiar</button>
+
+                {{#if error}}
+                <p class="text-red-500 font-bold text-lg my-3">*{{error}}</p>
+                {{/if}}
+
+            </form>
+
+            <!--========== PAGO ==========-->
+            <form action="/checkout" method="post" id="formPago" style="margin-top: 140px;">
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_51KzcibEGBho8cDmviZ4W3cGkvf5LZRklqOVDdSQbHHz8jZbCol3xldgwJkDT99JBvXMzgnq8zfCXEEEGlVGfA2Fa00pSzyhgNO"
+                    data-amount="2100" data-name="Reserva tu pista" data-description="Padel Indoor"
+                    data-image="./img/logo.png" data-locale="auto">
+                    </script>
+                <script>
+                    document.getElementsByClassName("stripe-button-el")[0].style.display = "none";
+                </script>
+                <button type="submit"
+                    class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700" style="margin-top: -129px;">Pagar
+                </button>
+            </form>
+        </section>
+
+        <!--========== ENLACES DE INTERES ==========-->
+        <section class="decoration section bd-container" id="enlacesDeInteres">
+            <h2 class="section-title">Enlaces de interes</h2>
+            <div class="decoration__container bd-grid">
+                <div class="decoration__data" id="consultar">
+                    <h3 class="decoration__title">Consultar reserva</h3>
+                    <a href="/reserva" class="button button-link">
+                        <img src="./img/reserva.png" alt="reserva" class="decoration__img">
+                    </a>
+                </div>
+
+                <div class="decoration__data" id="Resultado">
+                    <h3 class="decoration__title">Resultado</h3>
+                    <a href="/resultados" class="button button-link">
+                        <img src="./img/resultados.png" alt="resultados" class="decoration__img">
+                    </a>
+                </div>
+
+                <div class="decoration__data" id="Streaming">
+                    <h3 class="decoration__title">Streaming</h3>
+                    <a href="/emision" class="button button-link">
+                        <img src="./img/live-streaming.png" alt="live-streaming" class="decoration__img">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--========== TARIFAS ==========-->
+        <section class="accessory section bd-container" id="tarifas">
+            <h2 class="section-title">Precios reserva de pistas</h2>
+            <div class="accessory__container bd-grid">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                De lunes a viernes<br>
+                                Pistas de 1 a 6/exterior
+                            </th>
+                            <th>
+                                De lunes a viernes<br>
+                                Pista central Indoor
+                            </th>
+                            <th>
+                                Fines de semana/festivos<br>
+                                Pistas de 1 a 6/exterior
+                            </th>
+                            <th>
+                                Fines de semana/festivos<br>
+                                Pista central Indoor
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="4">DE 9:30 - 13:30 4€</td>
+                            <td data-label="5">DE 9:30 - 13:30 5€</td>
+                            <td data-label="5">DE 9:30 - 12:00 5€</td>
+                            <td data-label="8">DE 9:30 - 12:00 8€</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="4.50">DE 14:00 - 16:30 4.50€</td>
+                            <td data-label="5.50">DE 14:00 - 16:30 5.50€</td>
+                            <td data-label="5.50">DE 12:30 - 21:00 5.50€</td>
+                            <td data-label="6.50">DE 12:30 - 21:00 6.50€</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="7">DE 17:00 - 21:00 7€</td>
+                            <td data-label="8">DE 17:00 - 21:00 8€</td>
+                            <td data-label="6">DESDE LAS 21:30 6€</td>
+                            <td data-label="7">DESDE LAS 21:30 7€</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="5.50">DESDE LAS 21:30 5.50€</td>
+                            <td data-label="6.50">DESDE LAS 21:30 6.50€</td>
+                            <td data-label=""></td>
+                            <td data-label=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--=============== SPONSOR ===============-->
+        <section class="sponsor section bd-container">
+            <h2 class="section-title">Patrocinadores</h2>
+            <div class="sponsor__container container grid">
+                <img src="./img/sponsor1.png" alt="babolat" class="sponsor__img">
+                <img src="./img/sponsor2.png" alt="vibor-a" class="sponsor__img">
+                <img src="./img/sponsor3.png" alt="head" class="sponsor__img">
+                <img src="./img/sponsor4.png" alt="bullpadel" class="sponsor__img">
+            </div>
+        </section>
+
+        <!--========== NEWSLETTER ==========-->
+        <section class="send section">
+            <div class="send__container bd-container bd-grid">
+                <div class="send__content">
+                    <h2 class="section-title-center send__title">Inscríbete</h2>
+                    <p class="send__description">No dejes pasar esta irrepetible oportunidad y suscríbete ya a nuestra
+                        Newsletter.</p>
+                    <form action="">
+                        <div class="send__direction">
+                            <input type="text" placeholder="Email" class="send__input">
+                            <a href="#" class="button">Enviar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section">
+        <div class="footer__container bd-container bd-grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Patrocinadores</h3>
+                <ul>
+                    <li><a href="" class="footer__link">Head </a></li>
+                    <li><a href="" class="footer__link">Vibora</a></li>
+                    <li><a href="" class="footer__link">Bullpadel</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Otros servicios</h3>
+                <ul>
+                    <li><a href="#tarifas" class="footer__link">Tarifas </a></li>
+                    <li><a href="#" class="footer__link">Descuentos</a></li>
+                    <li><a href="#" class="footer__link">Métodos de pago</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Nuestra empresa</h3>
+                <ul>
+                    <li><a href="#" class="footer__link">Blog</a></li>
+                    <li><a href="#" class="footer__link">Sobre nosotros</a></li>
+                    <li><a href="#" class="footer__link">Nuestra misión</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+                <a href="#" class="footer__social"><i class='bx bxl-facebook-circle '></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
+            </div>
+        </div>
+
+        <p class="footer__copy">&#169; 2022 Padel indoor. Todos los derechos reservados</p>
+    </footer>
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

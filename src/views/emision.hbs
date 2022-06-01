@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emision</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+
+        .page-header {
+            width: 100%;
+            float: left;
+            clear: both;
+            padding: 0 0 80px 0;
+        }
+
+        .page-template-producto .page-header>h1 {
+            margin: 0 auto 40px auto;
+            max-width: 850px;
+        }
+
+        .page-header>h1 {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #2a2a2a;
+            font-size: 44px;
+            line-height: 50px;
+            font-style: italic;
+            margin: 0 auto 0px auto;
+            position: relative;
+            text-align: center;
+            max-width: 820px;
+        }
+
+        .page-template-producto .page-header>p {
+            font-weight: 500;
+            color: #2a2a2a;
+            font-size: 23px;
+            line-height: 1.3em;
+        }
+
+        .page-header>p {
+            color: #2a2a2a;
+            font-size: 20px;
+            line-height: 1.3em;
+            max-width: 772px;
+            margin: 0 auto 60px auto;
+            position: relative;
+            text-align: center;
+        }
+
+        .boton4 {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0.5em 1.2em;
+            background: #31ac68;
+            border: 2px solid;
+            border-color: #31ac68;
+            position: relative;
+        }
+
+        .boton4:hover {
+            color: rgba(255, 255, 255, 1) !important;
+            box-shadow: 0 4px 16px hwb(134 19% 33%);
+            transition: all 0.2s ease;
+        }
+
+        .boton5 {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0.5em 1.2em;
+            background: #ac3131;
+            border: 2px solid;
+            border-color: #ac3131;
+            position: relative;
+        }
+
+        .boton5:hover {
+            color: rgba(255, 255, 255, 1) !important;
+            box-shadow: 0 4px 16px rgb(172, 49, 49);
+            transition: all 0.2s ease;
+        }
+
+        video#video {
+            position: relative;
+            height: 400px;
+            width: 32%;
+        }
+    </style>
+
+</head>
+
+<body
+    class="page-template page-template-producto">
+
+    <div class="site-inner" style="margin-top: 140px; max-width: 100%;">
+        <header class="page-header">
+            <h1 class="section-title-center">Graba tus partidos de pádel</h1>
+            <p>
+                Grabación de toda el área de juego con tres perspectivas simultáneas. Llévate contigo la
+                grabación
+                de tu partido
+                una vez hayas terminado de jugar en un usb pendrive y sin necesidad de ningún operador. Sistema
+                autónomo y
+                automático. Sin necesidad de descargarte el vídeo de internet en las versiones base y sistemas
+                online Cloud el
+                las versiones más avanzadas..
+
+                Visualiza al instante tus partidos con tus amigos en Pelcam Player versión móvil o PC
+            </p>
+        </header>
+        <section class="decoration section bd-container" id="Resultado">
+            <h2 class="section-title">Ventajas</h2>
+            <div class="decoration__container bd-grid">
+                <div class="decoration__data" id="pago">
+                    <img src="https://mytennisref.com/wp-content/uploads/2019/06/velocidad_spinntech_estadisticas_tenis.png"
+                        alt="Conoce y mejora la velocidad de tu juego con mytennisref" width="340" height="250"
+                        class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <strong>Cámaras HD de alta resolución</strong>
+                    Cámaras de alta resolución para que no pierdas detalle de tu partido, tus movimientos y el
+                    desplazamiento de los jugadores por el área de juego.
+                </div>
+
+                <div class="decoration__data" id="Resultado">
+                    <img src="https://mytennisref.com/wp-content/uploads/2019/06/precision_spinntech_tenis.png"
+                        alt="mytennisref recoge todos tus movimientos mostrando resultados precisos" width="350"
+                        height="200" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <strong>Grabación de 3 vistas en formato cuadrante</strong>
+                    El sistema genera un video en cuadrante con tres vistas de la pista, dos laterales y una central
+                    panorámica de 180 grados. Para poder grabar todos los detalles de la pista y los jugadores.
+                </div>
+
+                <div class="decoration__data" id="Streaming">
+                    <img src="https://mytennisref.com/wp-content/uploads/2019/06/porcentajes_servicio_spinntech_tenis_app.png"
+                        alt="Spinntech mejora tu tenis día a día" width="350" height="214" class="wow fadeIn"
+                        style="visibility: visible; animation-name: fadeIn;">
+                    <br>
+                    <strong>Grabación instantánea mientras juegas tu partido</strong>
+                    Con novedosa tecnología de grabación permite que el video se genere de forma instantánea
+                    mientras se juega el partido y de forma totalmente automática, sin necesidad de ningún operador
+                    de cámara que la realice, ni solicitud de descarga al club. Sin necesidad de reserva previa. El
+                    club te proporciona la ficha para activar el sistema de grabación. El equipo está situado junto
+                    a la pista que vas a jugar. Inicias grabación, juegas y te llevas el video grabado en tu usb.
+                    Sencillo, rápido e instantáneo.
+                </div>
+            </div>
+        </section>
+        <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-items: center;justify-content: center;">
+            <button class="boton4" id="btn" style="margin: 10px;">Empezar a
+                emitir</button>
+            <br>
+            <button class="boton5" id="btn" onclick="location.reload();" style="margin: 10px;">Dejar de emitir</button>
+        </div>
+        <div
+            style="display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: flex-start; margin-bottom: 50px;">
+            <video src="" id="video" autoplay="true"></video>
+            <div style="display: flex;flex-direction: row;flex-wrap: wrap;width: 25%;justify-content: center;">
+                <p>Caracteristicas</p>
+                <ul>
+                    <li>Grabación desde cualquier ángulo: el sistema permite grabar vídeos desde cualquier situación de
+                        la pista en función de la colocación de las cámaras.</li>
+                    <li>Tecnología In/out: detectamos dónde se produce el impacto de cada pelota para indicar si ha
+                        entrado o golpeado fuera de las líneas.</li>
+                    <li>Contiene situaciones de partido: derecha paralela, revés cruzado, bolas de break, winners o
+                        todas las características que permiten al usuario analizar cada golpe por juegos, sets o
+                        partidos completos.</li>
+                    <li>Información comparada: si lo que deseas es ver tu evolución o progreso en algún aspecto de tu
+                        juego, puedes comprobarlo con sesiones grabadas de forma independiente que puedes tener en la
+                        pantalla en un solo momento.</li>
+                </ul>
+            </div>
+        </div>
+        <canvas id="preview"></canvas>
+        <div class="status"></div>
+
+    </div>
+
+
+    <script>
+
+        var canvas = document.querySelector('#preview');
+        var context = canvas.getContext('2d');
+        var btn = document.querySelector('#btn');
+
+        canvas.style.display = 'none';
+        canvas.width = 512;
+        canvas.height = 384;
+
+        context.width = canvas.width;
+        context.height = canvas.height;
+
+        var video = document.querySelector('#video');
+
+        var socket = io();
+
+        function publicarMensaje(msg) {
+            document.querySelector('.status').innerHTML = msg;
+        }
+
+        function loadCamara(stream) {
+            video.srcObject = stream;
+            publicarMensaje('Camara funcionando');
+        }
+
+        function errorCamara() {
+            publicarMensaje('La camara ha fallado');
+        }
+
+        function verVideo(video, context) {
+            context.drawImage(video, 0, 0, context.width, context.height);
+            socket.emit('stream', canvas.toDataURL('image/webp'));
+        }
+
+        btn.addEventListener('click', () => {
+            navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
+
+            if (navigator.getUserMedia) {
+                navigator.getUserMedia({ video: true }, loadCamara, errorCamara);
+            }
+
+            var intervalo = setInterval(() => {
+                verVideo(video, context);
+            }, 30);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

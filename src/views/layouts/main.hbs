@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+
+  <!-- Fontawesome Link 
+  <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">-->
+
+  <!-- CSS 
+  <link rel="stylesheet" href="./css/style.css">-->
+
+  <!-- JavaScript 
+  <script type="text/javascript" src="./js/script.js"></script>-->
+
+  <!--========== BOX ICONS ==========-->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+  <!--========== CSS ==========-->
+  <link rel="stylesheet" href="./css/style2.css">
+
+  <!--========== FAVICON ==========-->
+  <link rel="icon" type="image/x-icon" href="./imG/logo.png">
+
+</head>
+
+<body class="bg-gray-200">
+
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+
+      <h1 class="nav__logo"><a href="/">Padel indoor</a></h1>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          {{#if name}}
+
+          <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+          <li class="nav__item"><a href="#reserva" class="nav__link">Reserva</a></li>
+          <li class="nav__item"><a href="#enlacesDeInteres" class="nav__link">Enlaces de interes</a></li>
+          <li class="nav__item"><a href="#tarifas" class="nav__link">Tarifas</a></li>
+          {{!-- <li class="nav__item"><a href="#consultar" class="nav__link">Consultar</a></li>
+          
+          <li class="nav__item"><a href="#Resultado" class="nav__link">Resultado</a></li>
+          <li class="nav__item"><a href="#Streaming" class="nav__link">Streaming</a></li> --}}
+
+          <li><i class='bx bx-toggle-left change-theme' id="theme-button"></i></li>
+
+          <li class="nav-item px-4" style="padding-left: 0rem; padding-right: 0rem;">
+            <a href="/logout" class="nav-link font-semibold bg-red-500 hover:bg-red-700 py-3 px-4 rounded-md">Cerrar
+              sesión</a>
+          </li>
+
+          {{else}}
+          <li class="nav-item px-4">
+            <a href="/login" class="nav-link font-semibold hover:bg-green-700 py-3 px-4 rounded-md">Login</a>
+          </li>
+
+          <li class="nav-item px-4">
+            <a href="/register" class="nav-link font-semibold border-2 border-white hover:bg-white hover:text-green-700 py-3
+            px-4 rounded-md">Registro</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+      <div class="nav__toggle" id="nav-toggle">
+        <i class='bx bx-grid-alt'></i>
+      </div>
+    </nav>
+  </header>
+  {{{body}}}
+
+
+</body>
+
+</html>
